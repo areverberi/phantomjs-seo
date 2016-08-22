@@ -41,13 +41,13 @@ var prerenderPage = function(req, res, next) {
           if(requestArray.length === 0) {
             clearInterval(interval);
             console.log('clearing interval');
-            return sitePage.property('content');
+            return sitePage.property('content')
+            .then(function(content) {
+              console.log('content', content);
+              res.status(200).end(content);
+            });
           }
         }, 500);
-      })
-      .then(function(content) {
-        console.log('content', content);
-        res.status(200).end(content);
       })
       .catch(function(err) {
         console.log('error', err);
