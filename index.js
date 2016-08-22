@@ -42,7 +42,7 @@ var prerenderPage = function(req, res, next) {
         }, 500);
       })
       .then(function(content) {
-        res.status(200).body(content).end();
+        res.status(200).end(content);
       })
       .catch(function(err) {
         console.log('error', err);
