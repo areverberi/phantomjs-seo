@@ -13,7 +13,7 @@ var prerenderPage = function(req, res, next) {
       })
       .then(function(page) {
         sitePage = page;
-        var url = 'http://'+req.headers.host+relUrl;
+        var url = req.protocol+'://'+req.headers.host+relUrl;
         console.log('url to open', url);
         sitePage.on('onResourceRequested', function(requestData, networkRequest) {
           //console.log('requestData', requestData);
@@ -47,7 +47,7 @@ var prerenderPage = function(req, res, next) {
       .catch(function(err) {
         console.log('error', err);
         res.status(500).end();
-      }); 
+      });
   }
   else {
     next();
