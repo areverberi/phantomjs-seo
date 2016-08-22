@@ -1,0 +1,27 @@
+{
+  "name": "phantomjs-seo",
+  "version": "1.0.0",
+  "description": "express middleware for prerendering pages with phantomjs for search engine crawling",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/areverberi/phantomjs-seo.git"
+  },
+  "keywords": [
+    "phantomjs",
+    "express",
+    "seo"
+  ],
+  "author": "Andrea Reverberi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/areverberi/phantomjs-seo/issues"
+  },
+  "homepage": "https://github.com/areverberi/phantomjs-seo#readme",
+  "dependencies": {
+    "phantom": "^2.1.17"
+  }
+}
