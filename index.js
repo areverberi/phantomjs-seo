@@ -4,6 +4,7 @@ var phantom = require('phantom'),
   requestArray = [];
 
 var prerenderPage = function(req, res, next) {
+  var pageStatus = 500;
   if(req.query._escaped_fragment_) {
     var relUrl= req.query._escaped_fragment_;
     phantom.create()
@@ -34,6 +35,7 @@ var prerenderPage = function(req, res, next) {
         return page.open(url);
       })
       .then(function(status) {
+        pageStatus = status;
         var interval = setInterval(function() {
           if(requestArray.length === 0) {
             clearInterval(interval);
@@ -42,7 +44,8 @@ var prerenderPage = function(req, res, next) {
         }, 500);
       })
       .then(function(content) {
-        res.status(200).end(content);
+        console.log(content);
+        res.status(pageStatus).end(content);
       })
       .catch(function(err) {
         console.log('error', err);
