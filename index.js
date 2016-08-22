@@ -36,15 +36,17 @@ var prerenderPage = function(req, res, next) {
       })
       .then(function(status) {
         pageStatus = status;
+        console.log('status', status);
         var interval = setInterval(function() {
           if(requestArray.length === 0) {
             clearInterval(interval);
+            console.log('clearing interval');
             return sitePage.property('content');
           }
         }, 500);
       })
       .then(function(content) {
-        console.log(content);
+        console.log('content', content);
         res.status(200).end(content);
       })
       .catch(function(err) {
