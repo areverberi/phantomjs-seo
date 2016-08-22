@@ -45,7 +45,7 @@ var prerenderPage = function(req, res, next) {
       })
       .then(function(content) {
         console.log(content);
-        res.status(pageStatus).end(content);
+        res.status(200).end(content);
       })
       .catch(function(err) {
         console.log('error', err);
